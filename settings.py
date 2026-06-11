@@ -1,0 +1,36 @@
+# settings.py
+import pygame
+
+# ===== ЭКРАН =====
+WIDTH, HEIGHT = 800, 600
+FPS = 60
+BG_COLOR = (20, 20, 30)
+
+# ===== ИГРОВЫЕ ОБЪЕКТЫ =====
+PADDLE_W, PADDLE_H = 100, 15
+PADDLE_SPEED = 8
+
+BALL_RADIUS = 8
+BALL_SPEED = 6
+
+BLOCK_W, BLOCK_H = 60, 20
+BLOCK_MARGIN = 5
+BLOCK_OFFSET_Y = 80  # Отступ сверху
+
+# ===== ЦВЕТА =====
+WHITE = (255, 255, 255)
+BLUE = (80, 150, 255)
+YELLOW = (255, 255, 80)
+RED = (255, 80, 80)
+GREEN = (80, 255, 150)
+ORANGE = (255, 150, 80)
+
+BLOCK_COLORS = {
+    1: BLUE,
+    2: GREEN,
+    3: ORANGE,
+}
+
+# ===== ПУТИ =====
+LEVELS_DIR = "levels"
+ASSETS_DIR = "assets"
