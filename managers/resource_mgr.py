@@ -1,4 +1,3 @@
-# managers/resource_mgr.py
 import pygame
 from settings import *
 
@@ -8,7 +7,7 @@ class ResourceManager:
     def __init__(self):
         self.images = {}
         self.fonts = {}
-        self.sounds = {}  # Не используем, но структура готова
+        self.sounds = {} 
 
     def get_font(self, name, size):
         key = (name, size)
