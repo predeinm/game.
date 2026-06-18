@@ -1,4 +1,3 @@
-# managers/score_manager.py
 import json
 import os
 
