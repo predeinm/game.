@@ -1,6 +1,4 @@
-# scenes/base_scene.py
 class BaseScene:
-    """Базовый класс для всех сцен."""
     
     def __init__(self, game):
         self.game = game
