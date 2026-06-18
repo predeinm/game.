@@ -1,4 +1,3 @@
-# entities/block.py
 import pygame
 from settings import *
 
@@ -7,9 +6,8 @@ class Block(pygame.sprite.Sprite):
         super().__init__()
         self.type = block_type
         self.health = block_type
-        self.points = block_type * 10  # Очки за разрушение
+        self.points = block_type * 10 
         
-        # Цвет зависит от типа (берём из settings.py)
         color = BLOCK_COLORS.get(block_type, BLUE)
         
         self.image = pygame.Surface((BLOCK_W, BLOCK_H))
@@ -27,6 +25,5 @@ class Block(pygame.sprite.Sprite):
         return False
 
     def draw(self, screen):
-        # Если блок жив, рисуем (метод kill() уже удалил спрайт из группы, так что это для безопасности)
         if self.health > 0:
             screen.blit(self.image, self.rect)
