@@ -1,4 +1,3 @@
-# entities/paddle.py
 import pygame
 from settings import *
 
@@ -15,7 +14,6 @@ class Paddle(pygame.sprite.Sprite):
         self.rect.bottom = HEIGHT - 20
 
     def update(self, input_handler):
-        # Клавиатура
         dx = 0
         if input_handler.is_key_pressed(pygame.K_LEFT):
             dx = -PADDLE_SPEED
@@ -26,12 +24,9 @@ class Paddle(pygame.sprite.Sprite):
         
         # Мышь (альтернатива)
         mouse_x, _ = input_handler.get_mouse_pos()
-        if abs(mouse_x - self.rect.centerx) > 5:  # Небольшой мёртвый зона
-            # Опционально: раскомментировать для управления мышью
-            # self.rect.centerx = mouse_x
+        if abs(mouse_x - self.rect.centerx) > 5: 
             pass
         
-        # Границы
         if self.rect.left < 0:
             self.rect.left = 0
         if self.rect.right > WIDTH:
