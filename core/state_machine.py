@@ -1,4 +1,3 @@
-# core/state_machine.py
 class StateManager:
     """Управляет переключением между сценами."""
     
@@ -22,7 +21,7 @@ class StateManager:
         self.current_state = self.states[name]
         self.current_state.enter()
         
-        print(f"🔄 Смена состояния: {name}")
+        print(f" Смена состояния: {name}")
 
     def handle_events(self, events):
         """Передать события текущей сцене."""
