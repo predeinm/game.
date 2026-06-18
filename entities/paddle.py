@@ -22,7 +22,6 @@ class Paddle(pygame.sprite.Sprite):
         
         self.rect.x += dx
         
-        # Мышь (альтернатива)
         mouse_x, _ = input_handler.get_mouse_pos()
         if abs(mouse_x - self.rect.centerx) > 5: 
             pass
