@@ -29,7 +29,6 @@ class Particle:
         ratio = self.life / self.max_life
         current_r = max(0.5, self.radius * ratio)
         alpha = int(200 * ratio)
-        # Цвет с альфа-каналом (R, G, B, A)
         particle_color = (*self.color[:3], alpha)
 
         size = int(current_r * 2 + 2)
