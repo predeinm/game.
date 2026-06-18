@@ -20,7 +20,7 @@ class Block(pygame.sprite.Sprite):
         """Получить урон. Возвращает True, если блок уничтожен."""
         self.health -= damage
         if self.health <= 0:
-            self.kill()  # Удалить из группы Sprite
+            self.kill() 
             return True
         return False
 
