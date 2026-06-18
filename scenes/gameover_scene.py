@@ -1,4 +1,3 @@
-# scenes/gameover_scene.py
 from scenes.base_scene import BaseScene
 from settings import *
 
