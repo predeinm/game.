@@ -1,4 +1,3 @@
-# scenes/game_scene.py
 import pygame
 from scenes.base_scene import BaseScene
 from entities.paddle import Paddle
@@ -19,8 +18,8 @@ class GameScene(BaseScene):
         self.level_manager = LevelManager(game)
         self.exploding = False
         self.explode_timer = 0
-        self.paused = False          # ← НОВОЕ
-        self.speed_mult = 1.0        # ← НОВОЕ
+        self.paused = False          
+        self.speed_mult = 1.0        
 
     def enter(self):
         self.paddle = Paddle()
@@ -31,7 +30,6 @@ class GameScene(BaseScene):
         self.exploding = False
         self.paused = False
         
-        # ← НОВОЕ: ускорение на 15% за каждый уровень
         self.speed_mult = 1.0 + (self.level_manager.current_level_id - 1) * 0.15
         self.ball = Ball(self.paddle, speed_mult=self.speed_mult)
         
@@ -41,18 +39,18 @@ class GameScene(BaseScene):
 
     def exit(self):
         self.game.final_score = self.score
-        self.game.score_manager.check_and_save(self.score)  # ← НОВОЕ
+        self.game.score_manager.check_and_save(self.score)  
 
     def handle_events(self, events):
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     self.game.state_manager.change_state("menu")
-                elif event.key == pygame.K_p:   # ← НОВОЕ: Пауза
+                elif event.key == pygame.K_p:   
                     self.paused = not self.paused
 
     def update(self, dt):
-        if self.paused:  # ← НОВОЕ: пропуск логики при паузе
+        if self.paused:  
             return
 
         if self.exploding:
@@ -118,13 +116,13 @@ class GameScene(BaseScene):
             p.draw(self.screen)
             
         # HUD
-        hud_str = f"Ур: {self.level_manager.current_level_id} | Счёт: {self.score} | ❤️ {self.lives}"
+        hud_str = f"Ур: {self.level_manager.current_level_id} | Счёт: {self.score} |  {self.lives}"
         hud = self.font.render(hud_str, True, WHITE)
         self.screen.blit(hud, (10, 10))
         
         hint = self.font.render("ESC - Меню  |  P - Пауза", True, (100, 100, 100))
         self.screen.blit(hint, (WIDTH - hint.get_width() - 10, 10))
         
-        if self.paused:  # ← НОВОЕ: оверлей паузы
+        if self.paused:  
             pause_text = self.font.render("ПАУЗА", True, WHITE)
             self.screen.blit(pause_text, (WIDTH//2 - pause_text.get_width()//2, HEIGHT//2))
