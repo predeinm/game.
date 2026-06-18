@@ -1,4 +1,3 @@
-# entities/particle.py
 import pygame
 import random
 import math
@@ -11,18 +10,17 @@ class Particle:
         self.life = 45
         self.max_life = 45
 
-        # Случайный разлёт
         angle = random.uniform(0, 2 * math.pi)
         speed = random.uniform(2, 7)
         self.vx = speed * math.cos(angle)
         self.vy = speed * math.sin(angle)
         if self.vy > 0:
-            self.vy *= 0.3  # Меньше частиц летит вниз
+            self.vy *= 0.3  
 
     def update(self):
         self.pos[0] += self.vx
         self.pos[1] += self.vy
-        self.vy += 0.15  # Гравитация
+        self.vy += 0.15  
         self.life -= 1
 
     def draw(self, screen):
