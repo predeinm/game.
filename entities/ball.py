@@ -11,7 +11,7 @@ class Ball(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.vx = 0
         self.vy = 0
-        self.speed_mult = speed_mult  # ← Параметр принят и сохранён
+        self.speed_mult = speed_mult
 
         if paddle:
             self.reset(paddle)
@@ -50,7 +50,7 @@ class Ball(pygame.sprite.Sprite):
         offset = max(-0.95, min(0.95, offset))
         
         angle = math.radians(offset * 70)
-        speed = BALL_SPEED * self.speed_mult  # ← Учитываем ускорение
+        speed = BALL_SPEED * self.speed_mult
         self.vx = speed * math.sin(angle)
         self.vy = -speed * math.cos(angle)
         
