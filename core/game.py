@@ -1,4 +1,3 @@
-# core/game.py
 import pygame
 import sys
 from settings import *
@@ -28,9 +27,9 @@ class Game:
         # Регистрация сцен
         self._setup_states()
         
-        print("✅ Игра инициализирована")
-        print(f"📦 Разрешение: {WIDTH}x{HEIGHT}")
-        print(f"🎯 FPS: {FPS}")
+        print(" Игра инициализирована")
+        print(f" Разрешение: {WIDTH}x{HEIGHT}")
+        print(f" FPS: {FPS}")
 
     def _setup_states(self):
         """Регистрация всех сцен."""
