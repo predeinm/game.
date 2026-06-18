@@ -1,4 +1,3 @@
-# managers/level_manager.py
 import json
 from entities.block import Block
 from settings import *
@@ -15,7 +14,7 @@ class LevelManager:
             with open(f"levels/level_{level_id}.json", "r") as f:
                 matrix = json.load(f)
         except FileNotFoundError:
-            print(f"⚠️ level_{level_id}.json не найден! Загрузка пустого уровня.")
+            print(f" level_{level_id}.json не найден! Загрузка пустого уровня.")
             return []
 
         blocks = []
@@ -25,7 +24,6 @@ class LevelManager:
         rows = len(matrix)
         cols = len(matrix[0])
         
-        # 🔹 Расчёт позиций для заполнения горизонтали
         total_width = cols * (BLOCK_W + BLOCK_MARGIN) - BLOCK_MARGIN
         start_x = (WIDTH - total_width) / 2
         start_y = BLOCK_OFFSET_Y
