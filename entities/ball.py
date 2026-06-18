@@ -1,5 +1,3 @@
-# entities/ball.py
-# entities/ball.py
 import pygame
 import math
 import random
@@ -8,7 +6,6 @@ from settings import *
 class Ball(pygame.sprite.Sprite):
     def __init__(self, paddle=None, speed_mult=1.0):
         super().__init__()
-        # Красный мяч
         self.image = pygame.Surface((BALL_RADIUS*2, BALL_RADIUS*2), pygame.SRCALPHA)
         pygame.draw.circle(self.image, RED, (BALL_RADIUS, BALL_RADIUS), BALL_RADIUS)
         self.rect = self.image.get_rect()
@@ -24,8 +21,6 @@ class Ball(pygame.sprite.Sprite):
         self.rect.centerx = paddle.rect.centerx
         self.rect.bottom = paddle.rect.top - 5
         direction = 1 if random.random() > 0.5 else -1
-        
-        # Скорость умножается на множитель уровня
         current_speed = BALL_SPEED * self.speed_mult
         self.vx = current_speed * direction
         self.vy = -current_speed
